@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -47,8 +46,7 @@ public class TimeController {
   }
 
   @GetMapping
-  public Page<TimeDto> getAll(OAuth2AuthenticationToken token,
-      @RequestParam(required = false) Pageable page) {
+  public Page<TimeDto> getAll(@RequestParam(required = false) Pageable page) {
     return service.getAll(page);
   }
 
