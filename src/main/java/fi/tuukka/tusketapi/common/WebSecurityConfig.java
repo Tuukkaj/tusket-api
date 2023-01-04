@@ -29,8 +29,14 @@ public class WebSecurityConfig {
         http.sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        http.addFilterBefore(authenticator, BasicAuthenticationFilter.class);
+//         http.addFilterBefore(authenticator, BasicAuthenticationFilter.class);
         return http.build();
     }
+
+    §@Override
+@Bean
+public AuthenticationManager authenticationManagerBean() throws Exception {
+    return super.authenticationManagerBean();
+}
 
 }
